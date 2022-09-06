@@ -1,0 +1,1010 @@
+<html>
+  <head>
+
+  <style type="text/css">
+  #data td, #data th {
+    border-style: solid;
+    border-width: 0.1em;
+    padding: 0.5em;
+  }
+
+  #content {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .scores {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    margin-bottom: 4cm;
+  }
+
+  .dash{
+    margin-top: 1cm;
+    border: 1px solid grey;
+    width: 300px;
+    height: 0px;
+    margin-bottom: 1cm;
+    text-align: center;
+  }
+
+  </style>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+  <title>Quality Estimation Task Results - EMNLP 2021 Sixth Conference on Machine Translation (WMT21)</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://www.google.com/jsapi?.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['table', 'corechart']});
+    google.charts.setOnLoadCallback(drawTables);
+
+    function drawTables() {
+      var formatter = new google.visualization.NumberFormat(
+          // {pattern: '0.0000'});
+          {pattern: '0.000'});
+
+      // TASK 1 Sent-level DA
+      var T1_da_multi = new google.visualization.DataTable();
+      T1_da_multi.addColumn('string', 'Team');
+      T1_da_multi.addColumn('string', 'Codalab username');
+      T1_da_multi.addColumn('string', 'Run');
+      T1_da_multi.addColumn('number', 'Rank');
+      T1_da_multi.addColumn('number', 'Spearman');
+      T1_da_multi.addColumn('number', 'Pearson r');
+      T1_da_multi.addColumn('number', 'RMSE');
+      T1_da_multi.addColumn('number', 'MAE');
+      T1_da_multi.addColumn('number', 'Disk footprint (B)');
+      T1_da_multi.addColumn('number', '# model params');
+      T1_da_multi.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '',1.76, 0.5717, 0.5925, 0.6885, 0.5392, 2260735089.0, 583891109.0], 
+        ['Papago', 'papago', '',2.88, 0.5015, 0.5055, 2.4037, 2.0772, 2243044839.0, 560713447.0], 
+        ['Welocalize-ARC/NKUA', 'NKUA-Welocalize', '',3.20, 0.4476, 0.4552, 0.7941, 0.6321, 2307101417.0, 576733248.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>',4.00, 0.4148, 0.3925, 0.9791, 0.8201, 2280011066.0, 564527011.0], 
+        ['', 'lp_sunny', '', 4.96, 0.4140, 0.4151, 1.0538, 0.8983, 2356736392.0, 580792183.0]
+      ]);
+      formatter.format(T1_da_multi, 4);
+      formatter.format(T1_da_multi, 5);
+      formatter.format(T1_da_multi, 6);
+      formatter.format(T1_da_multi, 7);
+
+      var T1_da_multi_no_enyo = new google.visualization.DataTable();
+      T1_da_multi_no_enyo.addColumn('string', 'Team');
+      T1_da_multi_no_enyo.addColumn('string', 'Codalab username');
+      T1_da_multi_no_enyo.addColumn('string', 'Run');
+      T1_da_multi_no_enyo.addColumn('number', 'Rank');
+      T1_da_multi_no_enyo.addColumn('number', 'Spearman');
+      T1_da_multi_no_enyo.addColumn('number', 'Pearson r');
+      T1_da_multi_no_enyo.addColumn('number', 'RMSE');
+      T1_da_multi_no_enyo.addColumn('number', 'MAE');
+      T1_da_multi_no_enyo.addColumn('number', 'Disk footprint (B)');
+      T1_da_multi_no_enyo.addColumn('number', '# model params');
+      T1_da_multi_no_enyo.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 2.08, 0.6048, 0.6253, 0.6713, 0.5205, 2260735089.0, 583891109.0],
+        ['Alibaba Translate', 'joanne.wjy', '', 1.76, 0.5866, 0.6123, 0.6749, 0.5334, 2191440.0, 560981507.0],
+        ['Papago', 'papago', '', 3.68, 0.5710, 0.5847, 1.7933, 1.4506, 2243044839.0, 560713447.0],
+        ['Welocalize-ARC/NKUA', 'NKUA-Welocalize', '', 4.48, 0.5064, 0.5351, 0.7328, 0.5706, 2307068585.0, 576725041.0],
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 4.96, 0.4974, 0.5111, 0.7481, 0.5849, 2280011066.0, 564527011.0],
+        ['', 'lp_sunny', '', 5.92, 0.4851, 0.5155, 0.7574, 0.5961, 2356736392.0, 580792183.0],
+      ]);
+      formatter.format(T1_da_multi_no_enyo, 4);
+      formatter.format(T1_da_multi_no_enyo, 5);
+      formatter.format(T1_da_multi_no_enyo, 6);
+      formatter.format(T1_da_multi_no_enyo, 7);
+
+      var T1_da_encs = new google.visualization.DataTable();
+      T1_da_encs.addColumn('string', 'Team');
+      T1_da_encs.addColumn('string', 'Codalab username');
+      T1_da_encs.addColumn('string', 'Run');
+      T1_da_encs.addColumn('number', 'Rank');
+      T1_da_encs.addColumn('number', 'Spearman');
+      T1_da_encs.addColumn('number', 'Pearson r');
+      T1_da_encs.addColumn('number', 'RMSE');
+      T1_da_encs.addColumn('number', 'MAE');
+      T1_da_encs.addColumn('number', 'Disk footprint (B)');
+      T1_da_encs.addColumn('number', '# model params');
+      T1_da_encs.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 3.36, 0.6549, 0.6716, 0.7200, 0.5450, 2260735089.0, 583891109.0], 
+        ['Papago', 'papago', '', 5.60, 0.6362, 0.6290, 1.3708, 1.0807, 2243044839.0, 560713447.0], 
+        ['Alibaba Translate', 'joanne.wjy', '', 2.88, 0.6346, 0.6585, 0.7462, 0.6074, 2191440.0, 560981507.0], 
+        ['HW-TSC', 'Abulice', '', 2.40, 0.6257, 0.6392, 0.7122, 0.5449, 540868112.0, 222353517.0], 
+        ['Welocalize-ARC/NKUA', 'NKUA-Welocalize', '', 5.60, 0.5629, 0.5916, 0.7850, 0.6095, 2307068585.0, 576725041.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 6.24, 0.5598, 0.5762, 0.8040, 0.6081, 2280011066.0, 564527011.0], 
+        ['', 'lp_sunny', '', 7.20, 0.5108, 0.5291, 0.7863, 0.6144, 2356736392.0, 580792183.0], 
+        ['aiXplain', 'ahmetgunduz', '', 6.24, 0.4774, 0.4983, 0.8252, 0.6785, 745679835.0, 12345.0], 
+        <!-- ['', 'nmehandru', '', 6.56, 0.2851, 0.3247, 1.2515, 0.9612, 0.0, 177853440.0],  -->
+      ]);
+      formatter.format(T1_da_encs, 4);
+      formatter.format(T1_da_encs, 5);
+      formatter.format(T1_da_encs, 6);
+      formatter.format(T1_da_encs, 7);
+
+      var T1_da_enja = new google.visualization.DataTable();
+      T1_da_enja.addColumn('string', 'Team');
+      T1_da_enja.addColumn('string', 'Codalab username');
+      T1_da_enja.addColumn('string', 'Run');
+      T1_da_enja.addColumn('number', 'Rank');
+      T1_da_enja.addColumn('number', 'Spearman');
+      T1_da_enja.addColumn('number', 'Pearson r');
+      T1_da_enja.addColumn('number', 'RMSE');
+      T1_da_enja.addColumn('number', 'MAE');
+      T1_da_enja.addColumn('number', 'Disk footprint (B)');
+      T1_da_enja.addColumn('number', '# model params');
+      T1_da_enja.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 3.04, 0.3846, 0.3827, 0.6888, 0.5284, 2260735089.0, 583891109.0], 
+        ['Alibaba Translate', 'joanne.wjy', '', 1.92, 0.3478, 0.3535, 0.6729, 0.5216, 2191440.0, 560981507.0], 
+        ['HW-TSC', 'Abulice', '', 3.04, 0.3409, 0.3542, 0.7255, 0.5547, 540868112.0, 222353517.0], 
+        ['Papago', 'papago', '', 5.28, 0.3266, 0.3378, 2.2529, 1.9574, 2243044839.0, 560713447.0], 
+        ['', 'lp_sunny', '', 6.08, 0.2896, 0.2864, 0.7176, 0.5561, 2356736392.0, 580792183.0], 
+        ['Welocalize-ARC/NKUA', 'NKUA-Welocalize', '', 7.20, 0.2762, 0.2811, 0.7548, 0.5790, 2307068585.0, 576725041.0], 
+        ['aiXplain', 'ahmetgunduz', '', 3.84, 0.2744, 0.2895, 0.7036, 0.5473, 745679835.0, 12345.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 7.04, 0.2716, 0.2729, 0.7474, 0.5762, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_da_enja, 4);
+      formatter.format(T1_da_enja, 5);
+      formatter.format(T1_da_enja, 6);
+      formatter.format(T1_da_enja, 7);
+
+      var T1_da_enmr = new google.visualization.DataTable();
+      T1_da_enmr.addColumn('string', 'Team');
+      T1_da_enmr.addColumn('string', 'Codalab username');
+      T1_da_enmr.addColumn('string', 'Run');
+      T1_da_enmr.addColumn('number', 'Rank');
+      T1_da_enmr.addColumn('number', 'Spearman');
+      T1_da_enmr.addColumn('number', 'Pearson r');
+      T1_da_enmr.addColumn('number', 'RMSE');
+      T1_da_enmr.addColumn('number', 'MAE');
+      T1_da_enmr.addColumn('number', 'Disk footprint (B)');
+      T1_da_enmr.addColumn('number', '# model params');
+      T1_da_enmr.addRows([
+        ['Papago', 'papago', '', 4.96, 0.6038, 0.7066, 0.6580, 0.5137, 2243044839.0, 560713447.0], 
+        ['Alibaba Translate', 'joanne.wjy', '', 1.76, 0.5972, 0.7157, 0.4564, 0.3492, 2191440.0, 560981507.0], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 4.80, 0.5920, 0.6968, 0.4975, 0.3649, 6932353559.0, 583891109.0], 
+        ['NJUNLP', 'gengxiang', '', 6.56, 0.5847, 0.4902, 0.6174, 0.4135, 3264730349.0, 560145557.0], 
+        ['HW-TSC', 'Abulice', '', 3.68, 0.5672, 0.6636, 0.5061, 0.3718, 222353517.0, 540868112.0], 
+        ['aiXplain', 'ahmetgunduz', '', 4.64, 0.4926, 0.5614, 0.5402, 0.3955, 745679835.0, 12345.0], 
+        ['Welocalize-ARC/NKUA', 'NKUA-Welocalize', '', 6.24, 0.4438, 0.5860, 0.5342, 0.4005, 2307068585.0, 576725041.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 7.68, 0.4356, 0.5246, 0.6275, 0.4609, 2280011066.0, 564527011.0], 
+        ['', 'lp_sunny', '', 7.84, 0.3954, 0.5356, 0.5696, 0.4428, 2356736392.0, 580792183.0], 
+
+      ]);
+      formatter.format(T1_da_enmr, 4);
+      formatter.format(T1_da_enmr, 5);
+      formatter.format(T1_da_enmr, 6);
+      formatter.format(T1_da_enmr, 7);
+
+      var T1_da_kmen = new google.visualization.DataTable();
+      T1_da_kmen.addColumn('string', 'Team');
+      T1_da_kmen.addColumn('string', 'Codalab username');
+      T1_da_kmen.addColumn('string', 'Run');
+      T1_da_kmen.addColumn('number', 'Rank');
+      T1_da_kmen.addColumn('number', 'Spearman');
+      T1_da_kmen.addColumn('number', 'Pearson r');
+      T1_da_kmen.addColumn('number', 'RMSE');
+      T1_da_kmen.addColumn('number', 'MAE');
+      T1_da_kmen.addColumn('number', 'Disk footprint (B)');
+      T1_da_kmen.addColumn('number', '# model params');
+      T1_da_kmen.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 2.40, 0.6689, 0.6795, 0.7140, 0.5688, 2260735089.0, 583891109.0], 
+        ['Alibaba Translate', 'joanne.wjy', '', 2.24, 0.6569, 0.6610, 0.7784, 0.5964, 2191440.0, 560981507.0], 
+        ['Papago', 'papago', '', 4.32, 0.6526, 0.6487, 2.7855, 2.2906, 2243044839.0, 560713447.0], 
+        ['Welocalize-ARC/NKUA', 'NKUA-Welocalize', '', 4.96, 0.6226, 0.6176, 0.7942, 0.6193, 2307068585.0, 576725041.0], 
+        ['', 'lp_sunny', '', 5.60, 0.6113, 0.6038, 0.7839, 0.6207, 2356736392.0, 580792183.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 4.96, 0.5788, 0.5682, 0.7737, 0.6160, 2280011066.0, 564527011.0], 
+        ['HW-TSC', 'Abulice', '', 5.28, 0.5087, 0.5251, 1.0426, 0.8038, 222353517.0, 540868112.0], 
+      ]);
+      formatter.format(T1_da_kmen, 4);
+      formatter.format(T1_da_kmen, 5);
+      formatter.format(T1_da_kmen, 6);
+      formatter.format(T1_da_kmen, 7);
+
+      var T1_da_psen = new google.visualization.DataTable();
+      T1_da_psen.addColumn('string', 'Team');
+      T1_da_psen.addColumn('string', 'Codalab username');
+      T1_da_psen.addColumn('string', 'Run');
+      T1_da_psen.addColumn('number', 'Rank');
+      T1_da_psen.addColumn('number', 'Spearman');
+      T1_da_psen.addColumn('number', 'Pearson r');
+      T1_da_psen.addColumn('number', 'RMSE');
+      T1_da_psen.addColumn('number', 'MAE');
+      T1_da_psen.addColumn('number', 'Disk footprint (B)');
+      T1_da_psen.addColumn('number', '# model params');
+      T1_da_psen.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 2.24, 0.7222, 0.7024, 0.7190, 0.5747, 2260735089.0, 583891109.0], 
+        ['Alibaba Translate', 'joanne.wjy', '', 2.08, 0.6968, 0.6737, 0.7197, 0.5937, 2191440.0, 560981507.0], 
+        ['Papago', 'papago', '', 3.52, 0.6713, 0.6264, 0.7632, 0.6458, 2243044839.0, 560713447.0], 
+        ['HW-TSC', 'Abulice', '', 2.40, 0.6608, 0.6474, 0.7288, 0.5915, 540868112.0, 222353517.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 5.44, 0.6410, 0.6134, 0.7880, 0.6634, 2280011066.0, 564527011.0], 
+        ['', 'lp_sunny', '', 6.08, 0.6371, 0.6214, 0.9538, 0.7746, 2356736392.0, 580792183.0], 
+      ]);
+      formatter.format(T1_da_psen, 4);
+      formatter.format(T1_da_psen, 5);
+      formatter.format(T1_da_psen, 6);
+      formatter.format(T1_da_psen, 7);
+
+
+
+      // TASK 1 Sent-level MQM
+      var T1_mqm_multi = new google.visualization.DataTable();
+      T1_mqm_multi.addColumn('string', 'Team');
+      T1_mqm_multi.addColumn('string', 'Codalab username');
+      T1_mqm_multi.addColumn('string', 'Run');
+      T1_mqm_multi.addColumn('number', 'Rank');
+      T1_mqm_multi.addColumn('number', 'Spearman');
+      T1_mqm_multi.addColumn('number', 'Pearson r');
+      T1_mqm_multi.addColumn('number', 'RMSE');
+      T1_mqm_multi.addColumn('number', 'MAE');
+      T1_mqm_multi.addColumn('number', 'Disk footprint (B)');
+      T1_mqm_multi.addColumn('number', '# model params');
+      T1_mqm_multi.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 3.20, 0.4739, 0.4259, 0.9730, 0.5585, 2260735089.0, 583891109.0], 
+        ['NJUNLP', 'gengxiang', '', 2.88, 0.4682, 0.4325, 0.9447, 0.5787, 3264730349.0, 560145557.0], 
+        ['Alibaba Translate', 'Vulcan', '', 1.92, 0.4559, 0.5171, 0.8552, 0.4927, 2260733079.0, 565137999.0], 
+        ['Papago', 'papago', '', 3.84, 0.4490, 0.3760, 1.3321, 0.9901, 2243044839.0, 560713447.0], 
+        ['', 'lp_sunny', '', 3.84, 0.4152, 0.3918, 0.9516, 0.5355, 2356736392.0, 580792183.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 4.48, 0.3172, 0.2359, 1.0412, 0.5750, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_mqm_multi, 4);
+      formatter.format(T1_mqm_multi, 5);
+      formatter.format(T1_mqm_multi, 6);
+      formatter.format(T1_mqm_multi, 7);
+
+      var T1_mqm_ende = new google.visualization.DataTable();
+      T1_mqm_ende.addColumn('string', 'Team');
+      T1_mqm_ende.addColumn('string', 'Codalab username');
+      T1_mqm_ende.addColumn('string', 'Run');
+      T1_mqm_ende.addColumn('number', 'Rank');
+      T1_mqm_ende.addColumn('number', 'Spearman');
+      T1_mqm_ende.addColumn('number', 'Pearson r');
+      T1_mqm_ende.addColumn('number', 'RMSE');
+      T1_mqm_ende.addColumn('number', 'MAE');
+      T1_mqm_ende.addColumn('number', 'Disk footprint (B)');
+      T1_mqm_ende.addColumn('number', '# model params');
+      T1_mqm_ende.addRows([
+        ['NJUNLP', 'gengxiang', '', 4.80, 0.6347, 0.6298, 0.8382, 0.5942, 3264730349.0, 560145557.0], 
+        ['BJTU-Toshiba', 'BJTU', '', 3.20, 0.6214, 0.6107, 0.8182, 0.5445, 2239711849.0, 559893507.0], 
+        ['', 'pu_nlp', '', 5.76, 0.6110, 0.5399, 0.9968, 0.7156, 1326455799.0, 237846178.0],
+        ['Papago', 'papago', '', 5.60, 0.5815, 0.5293, 0.9061, 0.5562, 2243044839.0, 560713447.0], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 4.96, 0.5607, 0.5902, 0.8542, 0.5211, 2260743851.0, 565139485.0], 
+        ['Alibaba Translate', 'Vulcan', '', 3.68, 0.5504, 0.6611, 0.7693, 0.4664, 2260733079.0, 565137999.0], 
+        ['', 'lp_sunny', '', 6.72, 0.4946, 0.5540, 0.8750, 0.5336, 2356736392.0, 580792183.0], 
+        ['HW-TSC', 'Abulice', '', 6.08, 0.4939, 0.5079, 0.9532, 0.6115, 470693617.0, 117653760.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 8.32, 0.4548, 0.4235, 0.9703, 0.5760, 2280011066.0, 564527011.0], 
+        ['aiXplain', 'ahmetgunduz', '', 7.20, 0.3760, 0.3511, 0.9950, 0.7470, 368857948.0, 12345.0], 
+      ]);
+      formatter.format(T1_mqm_ende, 4);
+      formatter.format(T1_mqm_ende, 5);
+      formatter.format(T1_mqm_ende, 6);
+      formatter.format(T1_mqm_ende, 7);
+
+      var T1_mqm_enru = new google.visualization.DataTable();
+      T1_mqm_enru.addColumn('string', 'Team');
+      T1_mqm_enru.addColumn('string', 'Codalab username');
+      T1_mqm_enru.addColumn('string', 'Run');
+      T1_mqm_enru.addColumn('number', 'Rank');
+      T1_mqm_enru.addColumn('number', 'Spearman');
+      T1_mqm_enru.addColumn('number', 'Pearson r');
+      T1_mqm_enru.addColumn('number', 'RMSE');
+      T1_mqm_enru.addColumn('number', 'MAE');
+      T1_mqm_enru.addColumn('number', 'Disk footprint (B)');
+      T1_mqm_enru.addColumn('number', '# model params');
+      T1_mqm_enru.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 3.84, 0.5187, 0.4076, 0.9628, 0.5305, 2260743915.0, 565139485.0], 
+        ['Alibaba Translate', 'Vulcan', '', 3.52, 0.5045, 0.4443, 0.9614, 0.5902, 2260733079.0, 565137999.0], 
+        ['Papago', 'papago', '', 5.76, 0.4963, 0.4385, 1.4282, 1.1261, 2243044839.0, 560713447.0], 
+        ['NJUNLP', 'gengxiang', '', 5.76, 0.4742, 0.3910, 0.9966, 0.6655, 3264730349.0, 560145557.0], 
+        ['', 'lp_sunny', '', 4.96, 0.4534, 0.4217, 0.9154, 0.5478, 2356736392.0, 580792183.0], 
+        ['BJTU-Toshiba', 'BJTU', '', 5.12, 0.4341, 0.3512, 1.0105, 0.6586, 2239711849.0, 559893507.0], 
+        ['HW-TSC', 'Abulice', '', 7.52, 0.4329, 0.3854, 1.2569, 0.8085, 2260780823.0, 565137436.0], 
+        ['aiXplain', 'ahmetgunduz', '', 6.40, 0.3378, 0.2111, 1.1158, 0.7853, 368857948.0, 12345.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 7.84, 0.3327, 0.2791, 1.0510, 0.6058, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_mqm_enru, 4);
+      formatter.format(T1_mqm_enru, 5);
+      formatter.format(T1_mqm_enru, 6);
+      formatter.format(T1_mqm_enru, 7);
+
+      var T1_mqm_zhen = new google.visualization.DataTable();
+      T1_mqm_zhen.addColumn('string', 'Team');
+      T1_mqm_zhen.addColumn('string', 'Codalab username');
+      T1_mqm_zhen.addColumn('string', 'Run');
+      T1_mqm_zhen.addColumn('number', 'Rank');
+      T1_mqm_zhen.addColumn('number', 'Spearman');
+      T1_mqm_zhen.addColumn('number', 'Pearson r');
+      T1_mqm_zhen.addColumn('number', 'RMSE');
+      T1_mqm_zhen.addColumn('number', 'MAE');
+      T1_mqm_zhen.addColumn('number', 'Disk footprint (B)');
+      T1_mqm_zhen.addColumn('number', '# model params');
+      T1_mqm_zhen.addRows([
+        ['HW-TSC', 'Abulice', '', 5.44, 0.3685, 0.3236, 1.1631, 0.7697, 2260780823.0, 565137436.0], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 4.64, 0.3477, 0.2850, 1.0729, 0.5589, 2260735089.0, 583891109.0], 
+        ['Alibaba Translate', 'Vulcan', '', 3.84, 0.3471, 0.2577, 0.9890, 0.4898, 2260733079.0, 565137999.0], 
+        ['Papago', 'papago', '', 2.56, 0.3254, 0.2592, 0.9801, 0.3970, 2243044839.0, 560095633.0], 
+        ['BJTU-Toshiba', 'BJTU', '', 5.28, 0.2989, 0.0820, 1.1280, 0.6122, 1736199083.0, 434015235.0], 
+        ['', 'lp_sunny', '', 5.92, 0.2977, 0.1997, 1.0643, 0.5251, 2356736392.0, 580792183.0], 
+        ['NJUNLP', 'gengxiang', '', 4.64, 0.2956, 0.2766, 0.9992, 0.4762, 3264730349.0, 560145557.0], 
+        ['aiXplain', 'ahmetgunduz', '', 7.20, 0.1941, 0.0009, 1.4812, 1.0785, 368857948.0, 12345.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 7.20, 0.1641, 0.0049, 1.1024, 0.5433, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_mqm_zhen, 4);
+      formatter.format(T1_mqm_zhen, 5);
+      formatter.format(T1_mqm_zhen, 6);
+      formatter.format(T1_mqm_zhen, 7);
+
+
+
+      // TASK 1 Word-level
+      var T1_word_multi = new google.visualization.DataTable();
+      T1_word_multi.addColumn('string', 'Team');
+      T1_word_multi.addColumn('string', 'Codalab username');
+      T1_word_multi.addColumn('string', 'Run');
+      T1_word_multi.addColumn('number', 'Rank');
+      T1_word_multi.addColumn('number', 'MCC');
+      T1_word_multi.addColumn('number', 'Recall');
+      T1_word_multi.addColumn('number', 'Precision');
+      T1_word_multi.addColumn('number', 'Disk footprint (B)');
+      T1_word_multi.addColumn('number', '# model params');
+      T1_word_multi.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 1.60, 0.3411, 0.4664, 0.8102, 2260744555.0, 565139485.0], 
+        ['Papago', 'JeonghyeokPark', '', 1.60, 0.3167, 0.4219, 0.7865, 2241394304.0, 560301035.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 2.80, 0.2345, 0.3564, 0.7650, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_word_multi, 4);
+      formatter.format(T1_word_multi, 5);
+      formatter.format(T1_word_multi, 6);
+      formatter.format(T1_word_multi, 7);
+
+      var T1_word_multi_no_enyo = new google.visualization.DataTable();
+      T1_word_multi_no_enyo.addColumn('string', 'Team');
+      T1_word_multi_no_enyo.addColumn('string', 'Codalab username');
+      T1_word_multi_no_enyo.addColumn('string', 'Run');
+      T1_word_multi_no_enyo.addColumn('number', 'Rank');
+      T1_word_multi_no_enyo.addColumn('number', 'MCC');
+      T1_word_multi_no_enyo.addColumn('number', 'Recall');
+      T1_word_multi_no_enyo.addColumn('number', 'Precision');
+      T1_word_multi_no_enyo.addColumn('number', 'Disk footprint (B)');
+      T1_word_multi_no_enyo.addColumn('number', '# model params');
+      T1_word_multi_no_enyo.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 2.00, 0.3610, 0.4941, 0.8301, 2260744555.0, 565139485.0], 
+        ['Papago', 'JeonghyeokPark', '', 1.40, 0.3431, 0.4509, 0.8581, 2241394304.0, 560301035.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 2.80, 0.2569, 0.3784, 0.8375, 2280011066.0, 564527011.0], 
+        ['HW-TSC', 'Abulice', '', 3.80, 0.2181, 0.4037, 0.6284, 2336352552.0, 612368384.0], 
+      ]);
+      formatter.format(T1_word_multi_no_enyo, 4);
+      formatter.format(T1_word_multi_no_enyo, 5);
+      formatter.format(T1_word_multi_no_enyo, 6);
+      formatter.format(T1_word_multi_no_enyo, 7);
+
+      var T1_word_encs = new google.visualization.DataTable();
+      T1_word_encs.addColumn('string', 'Team');
+      T1_word_encs.addColumn('string', 'Codalab username');
+      T1_word_encs.addColumn('string', 'Run');
+      T1_word_encs.addColumn('number', 'Rank');
+      T1_word_encs.addColumn('number', 'MCC');
+      T1_word_encs.addColumn('number', 'Recall');
+      T1_word_encs.addColumn('number', 'Precision');
+      T1_word_encs.addColumn('number', 'Disk footprint (B)');
+      T1_word_encs.addColumn('number', '# model params');
+      T1_word_encs.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 2.00, 0.4355, 0.5782, 0.8518, 2260744555.0, 565139485.0], 
+        ['HW-TSC', 'Abulice', '', 2.60, 0.4239, 0.5699, 0.8481, 2260780823.0, 565137436.0], 
+        ['Papago', 'JeonghyeokPark', '', 2.40, 0.3961, 0.5485, 0.7392, 2240570795.0, 560095834.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</>', 3.00, 0.3245, 0.4260, 0.8695, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_word_encs, 4);
+      formatter.format(T1_word_encs, 5);
+      formatter.format(T1_word_encs, 6);
+      formatter.format(T1_word_encs, 7);
+
+      var T1_word_enja = new google.visualization.DataTable();
+      T1_word_enja.addColumn('string', 'Team');
+      T1_word_enja.addColumn('string', 'Codalab username');
+      T1_word_enja.addColumn('string', 'Run');
+      T1_word_enja.addColumn('number', 'Rank');
+      T1_word_enja.addColumn('number', 'MCC');
+      T1_word_enja.addColumn('number', 'Recall');
+      T1_word_enja.addColumn('number', 'Precision');
+      T1_word_enja.addColumn('number', 'Disk footprint (B)');
+      T1_word_enja.addColumn('number', '# model params');
+      T1_word_enja.addRows([
+        ['HW-TSC', 'Abulice', '', 2.20, 0.2576, 0.4967, 0.7278, 2260780823.0, 565137436.0], 
+        ['Papago', 'JeonghyeokPark', '', 1.60, 0.2573, 0.5017, 0.6989, 2241394304.0, 560301035.0], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 3.20, 0.2376, 0.4908, 0.6867, 2260743979.0, 565139485.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 3.00, 0.1751, 0.3750, 0.7946, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_word_enja, 4);
+      formatter.format(T1_word_enja, 5);
+      formatter.format(T1_word_enja, 6);
+      formatter.format(T1_word_enja, 7);
+
+      var T1_word_enmr = new google.visualization.DataTable();
+      T1_word_enmr.addColumn('string', 'Team');
+      T1_word_enmr.addColumn('string', 'Codalab username');
+      T1_word_enmr.addColumn('string', 'Run');
+      T1_word_enmr.addColumn('number', 'Rank');
+      T1_word_enmr.addColumn('number', 'MCC');
+      T1_word_enmr.addColumn('number', 'Recall');
+      T1_word_enmr.addColumn('number', 'Precision');
+      T1_word_enmr.addColumn('number', 'Disk footprint (B)');
+      T1_word_enmr.addColumn('number', '# model params');
+      T1_word_enmr.addRows([
+        ['Papago', 'JeonghyeokPark', '', 1.60, 0.4178, 0.4200, 0.9507, 2241394304.0, 560301035.0], 
+        ['NJUNLP', 'gengxiang', '', 2.60, 0.4116, 0.4722, 0.9386, 3264730349.0, 560145557.0], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 3.20, 0.3917, 0.4137, 0.9473, 2260744107.0, 565139485.0], 
+        ['HW-TSC', 'Abulice', '', 3.60, 0.3509, 0.4278, 0.9165, 2260780823.0, 565137436.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 4.00, 0.3058, 0.2820, 0.9461, 2280011066.0, 564527011.0], 
+      ]);
+      formatter.format(T1_word_enmr, 4);
+      formatter.format(T1_word_enmr, 5);
+      formatter.format(T1_word_enmr, 6);
+      formatter.format(T1_word_enmr, 7);
+
+      var T1_word_kmen = new google.visualization.DataTable();
+      T1_word_kmen.addColumn('string', 'Team');
+      T1_word_kmen.addColumn('string', 'Codalab username');
+      T1_word_kmen.addColumn('string', 'Run');
+      T1_word_kmen.addColumn('number', 'Rank');
+      T1_word_kmen.addColumn('number', 'MCC');
+      T1_word_kmen.addColumn('number', 'Recall');
+      T1_word_kmen.addColumn('number', 'Precision');
+      T1_word_kmen.addColumn('number', 'Disk footprint (B)');
+      T1_word_kmen.addColumn('number', '# model params');
+      T1_word_kmen.addRows([
+        ['Papago', 'JeonghyeokPark', '', 1.80, 0.4291, 0.7618, 0.6599, 2241394304.0, 560301035.0], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 2.80, 0.4253, 0.7786, 0.5551, 2260744107.0, 565139485.0], 
+        ['NJUNLP', 'gengxiang', '', 3.00, 0.4212, 0.7442, 0.6768, 3264730349.0, 560145557.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 3.20, 0.4016, 0.7694, 0.5672, 2280011066.0, 564527011.0], 
+        ['HW-TSC', 'Abulice', '', 4.20, 0.3531, 0.7589, 0.3949, 2260780823.0, 565137436.0], 
+      ]);
+      formatter.format(T1_word_kmen, 4);
+      formatter.format(T1_word_kmen, 5);
+      formatter.format(T1_word_kmen, 6);
+      formatter.format(T1_word_kmen, 7);
+
+      var T1_word_psen = new google.visualization.DataTable();
+      T1_word_psen.addColumn('string', 'Team');
+      T1_word_psen.addColumn('string', 'Codalab username');
+      T1_word_psen.addColumn('string', 'Run');
+      T1_word_psen.addColumn('number', 'Rank');
+      T1_word_psen.addColumn('number', 'MCC');
+      T1_word_psen.addColumn('number', 'Recall');
+      T1_word_psen.addColumn('number', 'Precision');
+      T1_word_psen.addColumn('number', 'Disk footprint (B)');
+      T1_word_psen.addColumn('number', '# model params');
+      T1_word_psen.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 2.20, 0.4243, 0.6910, 0.7332, 2260744107.0, 565139485.0], 
+        ['Papago', 'JeonghyeokPark', '', 2.00, 0.3735, 0.6464, 0.7227, 2241394304.0, 560301035.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 2.80, 0.3593, 0.6947, 0.6277, 2280011066.0, 564527011.0], 
+        ['HW-TSC', 'Abulice', '', 3.00, 0.3576, 0.6990, 0.5965, 2260780823.0, 565137436.0], 
+      ]);
+      formatter.format(T1_word_psen, 4);
+      formatter.format(T1_word_psen, 5);
+      formatter.format(T1_word_psen, 6);
+      formatter.format(T1_word_psen, 7);
+
+
+
+      // TASK 2 Explainable QE
+      var T2_encs = new google.visualization.DataTable();
+      T2_encs.addColumn('string', 'Team');
+      T2_encs.addColumn('string', 'Codalab username');
+      T2_encs.addColumn('string', 'Run');
+      T2_encs.addColumn('number', 'Target Recall at top-K');
+      T2_encs.addColumn('number', 'Target AUC');
+      T2_encs.addColumn('number', 'Target AP');
+      T2_encs.addColumn('number', 'Sent-level Pearson\'s');
+      T2_encs.addColumn('number', 'Sent-level Spearman');
+      T2_encs.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.5611, 0.7249, 0.6591, 0.5479, 0.5107],
+        ['HW-TSC', 'Abulice', '', 0.5356, 0.7094, 0.6317, 0.3135, 0.3234],
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.4173, 0.5366, 0.5003, 0.3421, 0.3515],
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.3630, 0.4930, 0.4526, 0.0111, 0.0159],
+      ]);
+      formatter.format(T2_encs, 3);
+      formatter.format(T2_encs, 4);
+      formatter.format(T2_encs, 5);
+      formatter.format(T2_encs, 6);
+      formatter.format(T2_encs, 7);
+
+      var T2_enja = new google.visualization.DataTable();
+      T2_enja.addColumn('string', 'Team');
+      T2_enja.addColumn('string', 'Codalab username');
+      T2_enja.addColumn('string', 'Run');
+      T2_enja.addColumn('number', 'Target Recall at top-K');
+      T2_enja.addColumn('number', 'Target AUC');
+      T2_enja.addColumn('number', 'Target AP');
+      T2_enja.addColumn('number', 'Sent-level Pearson\'s');
+      T2_enja.addColumn('number', 'Sent-level Spearman');
+      T2_enja.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.4662, 0.6407, 0.5566, 0.2522, 0.2434], 
+        ['HW-TSC', 'Abulice', '', 0.4617, 0.6514, 0.5468, 0.1323, 0.1481], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.3668, 0.5085, 0.4506, 0.2019, 0.2171], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.3355, 0.5027, 0.4177, 0.0284, 0.0186], 
+      ]);
+      formatter.format(T2_enja, 3);
+      formatter.format(T2_enja, 4);
+      formatter.format(T2_enja, 5);
+      formatter.format(T2_enja, 6);
+      formatter.format(T2_enja, 7);
+
+      var T2_enmr = new google.visualization.DataTable();
+      T2_enmr.addColumn('string', 'Team');
+      T2_enmr.addColumn('string', 'Codalab username');
+      T2_enmr.addColumn('string', 'Run');
+      T2_enmr.addColumn('number', 'Target Recall at top-K');
+      T2_enmr.addColumn('number', 'Target AUC');
+      T2_enmr.addColumn('number', 'Target AP');
+      T2_enmr.addColumn('number', 'Sent-level Pearson\'s');
+      T2_enmr.addColumn('number', 'Sent-level Spearman');
+      T2_enmr.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.3168, 0.6674, 0.4484, 0.5852, 0.4665], 
+        ['HW-TSC', 'Abulice', '', 0.2800, 0.6253, 0.4121, 0.3173, 0.4257], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.1936, 0.4785, 0.3102, 0.3356, 0.3719], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.1666, 0.4891, 0.2963, 0.0431, 0.0172], 
+      ]);
+      formatter.format(T2_enmr, 3);
+      formatter.format(T2_enmr, 4);
+      formatter.format(T2_enmr, 5);
+      formatter.format(T2_enmr, 6);
+      formatter.format(T2_enmr, 7);
+
+      var T2_enru = new google.visualization.DataTable();
+      T2_enru.addColumn('string', 'Team');
+      T2_enru.addColumn('string', 'Codalab username');
+      T2_enru.addColumn('string', 'Run');
+      T2_enru.addColumn('number', 'Target Recall at top-K');
+      T2_enru.addColumn('number', 'Target AUC');
+      T2_enru.addColumn('number', 'Target AP');
+      T2_enru.addColumn('number', 'Sent-level Pearson\'s');
+      T2_enru.addColumn('number', 'Sent-level Spearman');
+      T2_enru.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.3900, 0.7470, 0.5107, 0.4161, 0.4593], 
+        ['HW-TSC', 'Abulice', '', 0.3126, 0.6859, 0.4219, 0.3688, 0.4255], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.1483, 0.5265, 0.2557, 0.0216, 0.0154], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.1349, 0.4276, 0.2303, 0.2516, 0.3301], 
+      ]);
+      formatter.format(T2_enru, 3);
+      formatter.format(T2_enru, 4);
+      formatter.format(T2_enru, 5);
+      formatter.format(T2_enru, 6);
+      formatter.format(T2_enru, 7);
+
+      var T2_ende = new google.visualization.DataTable();
+      T2_ende.addColumn('string', 'Team');
+      T2_ende.addColumn('string', 'Codalab username');
+      T2_ende.addColumn('string', 'Run');
+      T2_ende.addColumn('number', 'Target Recall at top-K');
+      T2_ende.addColumn('number', 'Target AUC');
+      T2_ende.addColumn('number', 'Target AP');
+      T2_ende.addColumn('number', 'Sent-level Pearson\'s');
+      T2_ende.addColumn('number', 'Sent-level Spearman');
+      T2_ende.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.3652, 0.7756, 0.4903, 0.5590, 0.5532], 
+        ['HW-TSC', 'Abulice', '', 0.2517, 0.6893, 0.3611, 0.3749, 0.4347], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.1241, 0.5035, 0.2118, -0.0486, -0.0428], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.0744, 0.4416, 0.1720, 0.3699, 0.4142], 
+      ]);
+      formatter.format(T2_ende, 3);
+      formatter.format(T2_ende, 4);
+      formatter.format(T2_ende, 5);
+      formatter.format(T2_ende, 6);
+      formatter.format(T2_ende, 7);
+
+      var T2_enyo = new google.visualization.DataTable();
+      T2_enyo.addColumn('string', 'Team');
+      T2_enyo.addColumn('string', 'Codalab username');
+      T2_enyo.addColumn('string', 'Run');
+      T2_enyo.addColumn('number', 'Target Recall at top-K');
+      T2_enyo.addColumn('number', 'Target AUC');
+      T2_enyo.addColumn('number', 'Target AP');
+      T2_enyo.addColumn('number', 'Sent-level Pearson\'s');
+      T2_enyo.addColumn('number', 'Sent-level Spearman');
+      T2_enyo.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.2340, 0.6712, 0.3590, 0.3085, 0.3212], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.1441, 0.5141, 0.2459, -0.0855, -0.1011], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.1113, 0.4423, 0.2179, 0.0849, 0.1599], 
+      ]);
+      formatter.format(T2_enyo, 3);
+      formatter.format(T2_enyo, 4);
+      formatter.format(T2_enyo, 5);
+      formatter.format(T2_enyo, 6);
+      formatter.format(T2_enyo, 7);
+
+      var T2_kmen = new google.visualization.DataTable();
+      T2_kmen.addColumn('string', 'Team');
+      T2_kmen.addColumn('string', 'Codalab username');
+      T2_kmen.addColumn('string', 'Run');
+      T2_kmen.addColumn('number', 'Target Recall at top-K');
+      T2_kmen.addColumn('number', 'Target AUC');
+      T2_kmen.addColumn('number', 'Target AP');
+      T2_kmen.addColumn('number', 'Sent-level Pearson\'s');
+      T2_kmen.addColumn('number', 'Sent-level Spearman');
+      T2_kmen.addRows([
+        ['HW-TSC', 'Abulice', '', 0.6863, 0.7204, 0.7513, 0.6011, 0.6100], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.6652, 0.6600, 0.7506, 0.6165, 0.5978], 
+        ['UT-QE', 'f.azadi', '', 0.6220, 0.6277, 0.6941, 0.2217, 0.1903], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.5804, 0.5195, 0.6531, 0.4169, 0.4296], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.5646, 0.4978, 0.6325, -0.0475, -0.0446], 
+      ]);
+      formatter.format(T2_kmen, 3);
+      formatter.format(T2_kmen, 4);
+      formatter.format(T2_kmen, 5);
+      formatter.format(T2_kmen, 6);
+      formatter.format(T2_kmen, 7);
+
+      var T2_psen = new google.visualization.DataTable();
+      T2_psen.addColumn('string', 'Team');
+      T2_psen.addColumn('string', 'Codalab username');
+      T2_psen.addColumn('string', 'Run');
+      T2_psen.addColumn('number', 'Target Recall at top-K');
+      T2_psen.addColumn('number', 'Target AUC');
+      T2_psen.addColumn('number', 'Target AP');
+      T2_psen.addColumn('number', 'Sent-level Pearson\'s');
+      T2_psen.addColumn('number', 'Sent-level Spearman');
+      T2_psen.addRows([
+        ['HW-TSC', 'Abulice', '', 0.7151, 0.7163, 0.7774, 0.3927, 0.4182], 
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.6719, 0.6117, 0.7400, 0.5934, 0.6012], 
+        ['UT-QE', 'f.azadi', '', 0.6676, 0.6434, 0.7270, 0.4094, 0.4015], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.6148, 0.5034, 0.6761, 0.3777, 0.4029], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.6139, 0.4970, 0.6618, -0.0017, 0.0018], 
+      ]);
+      formatter.format(T2_psen, 3);
+      formatter.format(T2_psen, 4);
+      formatter.format(T2_psen, 5);
+      formatter.format(T2_psen, 6);
+      formatter.format(T2_psen, 7);
+
+      var T2_zhen = new google.visualization.DataTable();
+      T2_zhen.addColumn('string', 'Team');
+      T2_zhen.addColumn('string', 'Codalab username');
+      T2_zhen.addColumn('string', 'Run');
+      T2_zhen.addColumn('number', 'Target Recall at top-K');
+      T2_zhen.addColumn('number', 'Target AUC');
+      T2_zhen.addColumn('number', 'Target AP');
+      T2_zhen.addColumn('number', 'Sent-level Pearson\'s');
+      T2_zhen.addColumn('number', 'Sent-level Spearman');
+      T2_zhen.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.3786, 0.7849, 0.4753, 0.1034, 0.1902], 
+        ['HW-TSC', 'Abulice', '', 0.2203, 0.6523, 0.3150, 0.0966, 0.1589], 
+        ['Organisers', 'fblain', '<b>BASELINE (random)</b>', 0.0934, 0.4634, 0.1621, 0.0413, -0.0101], 
+        ['Organisers', 'plkumjorn', '<b>BASELINE (OpenKiwi+LIME)', 0.0476, 0.3881, 0.1263, -0.0071, 0.1587], 
+      ]);
+      formatter.format(T2_zhen, 3);
+      formatter.format(T2_zhen, 4);
+      formatter.format(T2_zhen, 5);
+      formatter.format(T2_zhen, 6);
+      formatter.format(T2_zhen, 7);
+
+
+
+      // TASK 3 Critical Error Detection 
+      var T3_cons_ende = new google.visualization.DataTable();
+      T3_cons_ende.addColumn('string', 'Team');
+      T3_cons_ende.addColumn('string', 'Codalab username');
+      T3_cons_ende.addColumn('string', 'Run');
+      T3_cons_ende.addColumn('number', 'Rank');
+      T3_cons_ende.addColumn('number', 'MCC');
+      T3_cons_ende.addColumn('number', 'Recall');
+      T3_cons_ende.addColumn('number', 'Precision');
+      T3_cons_ende.addColumn('number', 'Disk footprint (B)');
+      T3_cons_ende.addColumn('number', '# model params');
+      T3_cons_ende.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.83, 0.5641, 0.6190, 0.6190, 2260735025.0, 565137435.0],
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 1.67, 0.0738, 0.1905, 0.1905, 2277430785.0, 569330715.0],
+      ]);
+      formatter.format(T3_cons_ende, 4);
+      formatter.format(T3_cons_ende, 5);
+      formatter.format(T3_cons_ende, 6);
+      formatter.format(T3_cons_ende, 7);
+
+      var T3_cons_pten = new google.visualization.DataTable();
+      T3_cons_pten.addColumn('string', 'Team');
+      T3_cons_pten.addColumn('string', 'Codalab username');
+      T3_cons_pten.addColumn('string', 'Run');
+      T3_cons_pten.addColumn('number', 'Rank');
+      T3_cons_pten.addColumn('number', 'MCC');
+      T3_cons_pten.addColumn('number', 'Recall');
+      T3_cons_pten.addColumn('number', 'Precision');
+      T3_cons_pten.addColumn('number', 'Disk footprint (B)');
+      T3_cons_pten.addColumn('number', '# model params');
+      T3_cons_pten.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '', 0.83, 0.7209, 0.7606, 0.7606, 2260735025.0, 565137435.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 1.67, -0.0013, 0.1408, 0.1408, 2277430785.0, 569330715.0], 
+      ]);
+      formatter.format(T3_cons_pten, 4);
+      formatter.format(T3_cons_pten, 5);
+      formatter.format(T3_cons_pten, 6);
+      formatter.format(T3_cons_pten, 7);
+
+      var T3_uncons_ende = new google.visualization.DataTable();
+      T3_uncons_ende.addColumn('string', 'Team');
+      T3_uncons_ende.addColumn('string', 'Codalab username');
+      T3_uncons_ende.addColumn('string', 'Run');
+      T3_uncons_ende.addColumn('number', 'Rank');
+      T3_uncons_ende.addColumn('number', 'MCC');
+      T3_uncons_ende.addColumn('number', 'Recall');
+      T3_uncons_ende.addColumn('number', 'Precision');
+      T3_uncons_ende.addColumn('number', 'Disk footprint (B)');
+      T3_uncons_ende.addColumn('number', '# model params');
+      T3_uncons_ende.addRows([
+        ['KU X Upstage', 'sggwjb', '', 1.33, 0.9637, 0.9683, 0.9683, 2244861551.0, 559890432.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 2.17, 0.8547, 0.8730, 0.8730, 2260734129.0, 565137435.0], 
+        ['aiXplain', 'ahmetgunduz', '', 2.00, 0.2191, 0.3175, 0.3175, 2052963739.0, 12345.0], 
+      ]);
+      formatter.format(T3_uncons_ende, 4);
+      formatter.format(T3_uncons_ende, 5);
+      formatter.format(T3_uncons_ende, 6);
+      formatter.format(T3_uncons_ende, 7);
+
+      var T3_uncons_pten = new google.visualization.DataTable();
+      T3_uncons_pten.addColumn('string', 'Team');
+      T3_uncons_pten.addColumn('string', 'Codalab username');
+      T3_uncons_pten.addColumn('string', 'Run');
+      T3_uncons_pten.addColumn('number', 'Rank');
+      T3_uncons_pten.addColumn('number', 'MCC');
+      T3_uncons_pten.addColumn('number', 'Recall');
+      T3_uncons_pten.addColumn('number', 'Precision');
+      T3_uncons_pten.addColumn('number', 'Disk footprint (B)');
+      T3_uncons_pten.addColumn('number', '# model params');
+      T3_uncons_pten.addRows([
+        ['KU X Upstage', 'sggwjb', '', 1.17, 0.9836, 0.9859, 0.9859, 2244861551.0, 559890432.0], 
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>', 2.00, 0.9343, 0.9437, 0.9437, 2260734129.0, 565137435.0], 
+        ['aiXplain', 'ahmetgunduz', '', 2.00, 0.1792, 0.2958, 0.2958, 9395107.0, 12345.0], 
+      ]);
+      formatter.format(T3_uncons_pten, 4);
+      formatter.format(T3_uncons_pten, 5);
+      formatter.format(T3_uncons_pten, 6);
+      formatter.format(T3_uncons_pten, 7);
+
+
+
+
+  var ids = [
+    'results_task1_da_multi', 'results_task1_da_multi_no_enyo','results_task1_da_encs','results_task1_da_enja','results_task1_da_enmr','results_task1_da_kmen','results_task1_da_psen',
+    'results_task1_mqm_multi', 'results_task1_mqm_ende', 'results_task1_mqm_enru', 'results_task1_mqm_zhen',
+    'results_task1_word_multi', 'results_task1_word_multi_no_enyo','results_task1_word_encs','results_task1_word_enja','results_task1_word_enmr','results_task1_word_kmen','results_task1_word_psen',
+    'results_task3_cons_ende','results_task3_cons_pten','results_task3_uncons_ende','results_task3_uncons_pten',
+    'results_task2_encs','results_task2_enja','results_task2_enmr','results_task2_enru','results_task2_ende','results_task2_enyo','results_task2_kmen','results_task2_psen','results_task2_zhen',
+  ]
+  var data = [
+    T1_da_multi, T1_da_multi_no_enyo, T1_da_encs, T1_da_enja, T1_da_enmr, T1_da_kmen, T1_da_psen, 
+    T1_mqm_multi, T1_mqm_ende, T1_mqm_enru, T1_mqm_zhen,
+    T1_word_multi, T1_word_multi_no_enyo, T1_word_encs, T1_word_enja, T1_word_enmr, T1_word_kmen, T1_word_psen, 
+    T3_cons_ende, T3_cons_pten, T3_uncons_ende, T3_uncons_pten,
+    T2_encs, T2_enja, T2_enmr, T2_enru, T2_ende,  T2_enyo,  T2_kmen,  T2_psen,  T2_zhen, 
+  ]
+
+
+  // Sorting 4th column
+  for (var i = 0; i < data.length - 9; i++){
+    var task_id = ids[i]
+    var task_data = data[i]
+    var table = new google.visualization.Table(document.getElementById(task_id));
+    table.draw(task_data, {allowHtml: true, sortColumn: 4, sortAscending: false,
+      showRowNumber: true});
+  }
+
+  // Sorting 3rd column
+  for (var i = 22; i < data.length; i++){
+    var task_id = ids[i]
+    var task_data = data[i]
+    var table = new google.visualization.Table(document.getElementById(task_id));
+    table.draw(task_data, {allowHtml: true, sortColumn: 3, sortAscending: false,
+      showRowNumber: true});
+  }
+
+    }
+  </script>
+  </head>
+
+  <body>
+    <div id="content">
+
+      <div class="section">
+        <h1>Results of the Quality Estimation Shared Task 2022</h1>
+        <div align="left">
+          Jump direclty to 
+          <ul>
+            <!-- <li><a href="#task1_results">Task 1</a></li> -->
+            <li><a href="#task1_da_results">Task 1 Sent-levle DA</a></li>
+            <li><a href="#task1_mqm_results">Task 1 Sent-level MQM</a></li>
+            <li><a href="#task1_word_results">Task 1 Word-level</a></li>
+            <li><a href="#task2_results">Task 2 Explainable QE</a></li>
+            <li><a href="#task3_results">Task 3 Critical Error Dectection</a></li>
+          </ul>
+        </div>
+      <br />
+      Note: in each table, the "Rank" column indicates the averaged ranking of participants with regards to all metrics (including memory print and number of parameters).
+      </div>
+
+
+      <!-- Results for Task1 Sent-level DA-->
+      <div class="section">
+        <h2 id="task1_da_results" class="results">Task 1 -- Sentence-level Direct Assessment</h2> (<a href="#" style="text-decoration:none">top</a>) 
+        <table width="95%">
+          <tr align="center">
+            <td><h4>Multilingual (Full)</h4></td>
+            <td><h4>Multilingual (w/o English-Yoruba)</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_da_multi" class="table"></div></td>
+            <td><div id="results_task1_da_multi_no_enyo" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Czech</h4></td>
+            <td><h4>English-Japanese</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_da_encs" class="table"></div></td>
+            <td><div id="results_task1_da_enja" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Marathi</h4></td>
+            <td><h4>Khmer-English</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_da_enmr" class="table"></div></td>
+            <td><div id="results_task1_da_kmen" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Pashto</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_da_psen" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+        </table>
+      </div>
+
+
+      <!-- Results for Task1 Sent-level MQM -->
+      <div class="section">
+        <h2 id="task1_mqm_results" class="results">Task 1 -- Sentence-level MQM</h2> (<a href="#" style="text-decoration:none">top</a>) 
+        <table width="95%">
+          <tr align="center">
+            <td><h4>Multilingual</h4></td>
+            <td><h4>English-German</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_mqm_multi" class="table"></div></td>
+            <td><div id="results_task1_mqm_ende" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Russian</h4></td>
+            <td><h4>Chinese-English</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_mqm_enru" class="table"></div></td>
+            <td><div id="results_task1_mqm_zhen" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+        </table>
+      </div>
+
+      <!-- Results for Task1 Word-level-->
+      <div class="section">
+        <h2 id="task1_word_results" class="results">Task 1 -- Word-level</h2> (<a href="#" style="text-decoration:none">top</a>) 
+        <table width="95%">
+          <tr align="center">
+            <td><h4>Multilingual (Full)</h4></td>
+            <td><h4>Multilingual (w/o English-Yoruba)</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_word_multi" class="table"></div></td>
+            <td><div id="results_task1_word_multi_no_enyo" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Czech</h4></td>
+            <td><h4>English-Japanese</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_word_encs" class="table"></div></td>
+            <td><div id="results_task1_word_enja" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Marathi</h4></td>
+            <td><h4>Khmer-English</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_word_enmr" class="table"></div></td>
+            <td><div id="results_task1_word_kmen" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Pashto</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_word_psen" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+        </table>
+      </div>
+
+      <!-- Results for Task2 Explaibable QE-->
+      <div class="section">
+        <h2 id="task2_results" class="results">Task 2 -- Explainable QE</h2> (<a href="#" style="text-decoration:none">top</a>) 
+        <table width="100%">
+          <tr align="center">
+            <td><h4>English-Czech</h4></td>
+            <td><h4>English-Japanese</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task2_encs" class="table"></div></td>
+            <td><div id="results_task2_enja" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Marathi</h4></td>
+            <td><h4>English-Russian</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task2_enmr" class="table"></div></td>
+            <td><div id="results_task2_enru" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-German</h4></td>
+            <td><h4>English-Yoruba</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task2_ende" class="table"></div></td>
+            <td><div id="results_task2_enyo" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>Khmer-English</h4></td>
+            <td><h4>Pashto-English</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task2_kmen" class="table"></div></td>
+            <td><div id="results_task2_psen" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>Chinese-English</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task2_zhen" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+        </table>
+      </div>
+
+      <!-- Results for Task3 Critical Error Detection-->
+      <div class="section">
+        <h2 id="task3_results" class="results">Task 3 -- Critical Error Detection</h2> (<a href="#" style="text-decoration:none">top</a>) 
+        <table width="100%">
+          <tr align="center">
+            <td><h4>English-German (Constrained)</h4></td>
+            <td><h4>English-German (UNconstrained)</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task3_cons_ende" class="table"></div></td>
+            <td><div id="results_task3_uncons_ende" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>Portuguese-English (Constrained)</h4></td>
+            <td><h4>Portuguese-English (UNconstrained)</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task3_cons_pten" class="table"></div></td>
+            <td><div id="results_task3_uncons_pten" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
