@@ -487,6 +487,73 @@
       formatter.format(T1_word_psen, 6);
       formatter.format(T1_word_psen, 7);
 
+      var T1_word_ende = new google.visualization.DataTable();
+      T1_word_ende.addColumn('string', 'Team');
+      T1_word_ende.addColumn('string', 'Codalab username');
+      T1_word_ende.addColumn('string', 'Run');
+      T1_word_ende.addColumn('number', 'Rank');
+      T1_word_ende.addColumn('number', 'MCC');
+      T1_word_ende.addColumn('number', 'Recall');
+      T1_word_ende.addColumn('number', 'Precision');
+      T1_word_ende.addColumn('number', 'Disk footprint (B)');
+      T1_word_ende.addColumn('number', '# model params');
+      T1_word_ende.addRows([
+        ['NJUNLP', 'gengxiang', '',1.80, 0.3519, 0.3509, 0.9803, 3264730349.0, 560145557.0],
+        ['Papago', 'JeonghyeokPark', '',2.00, 0.3186, 0.3357, 0.9600, 2241394304.0, 560301035.0],
+        ['IST-Unbabel', 'IST-Unbabel', '',3.40, 0.3027, 0.3172, 0.9557, 2260744107.0, 565139485.0],
+        ['HW-TSC', 'Abulice', '',4.00, 0.2739, 0.2922, 0.9542, 2260780823.0, 565137436.0],
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>',3.80, 0.1824, 0.2128, 0.9695, 2280011066.0, 564527011.0],
+      ]);
+      formatter.format(T1_word_ende, 4);
+      formatter.format(T1_word_ende, 5);
+      formatter.format(T1_word_ende, 6);
+      formatter.format(T1_word_ende, 7);
+
+      var T1_word_enru = new google.visualization.DataTable();
+      T1_word_enru.addColumn('string', 'Team');
+      T1_word_enru.addColumn('string', 'Codalab username');
+      T1_word_enru.addColumn('string', 'Run');
+      T1_word_enru.addColumn('number', 'Rank');
+      T1_word_enru.addColumn('number', 'MCC');
+      T1_word_enru.addColumn('number', 'Recall');
+      T1_word_enru.addColumn('number', 'Precision');
+      T1_word_enru.addColumn('number', 'Disk footprint (B)');
+      T1_word_enru.addColumn('number', '# model params');
+      T1_word_enru.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '',2.40, 0.4274, 0.4675, 0.9583, 2260743915.0, 565139485.0],
+        ['Papago', 'JeonghyeokPark', '',2.00, 0.4207, 0.3811, 0.9663, 2241394304.0, 560713447.0],
+        ['NJUNLP', 'gengxiang', '',3.00, 0.3898, 0.4396, 0.9490, 3264730349.0, 560145557.0],
+        ['HW-TSC', 'Abulice', '',3.80, 0.3425, 0.3964, 0.9448, 2260780823.0, 565137436.0],
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>',3.80, 0.2027, 0.1440, 0.9603, 2280011066.0, 564527011.0],
+      ]);
+      formatter.format(T1_word_enru, 4);
+      formatter.format(T1_word_enru, 5);
+      formatter.format(T1_word_enru, 6);
+      formatter.format(T1_word_enru, 7);
+
+      var T1_word_zhen = new google.visualization.DataTable();
+      T1_word_zhen.addColumn('string', 'Team');
+      T1_word_zhen.addColumn('string', 'Codalab username');
+      T1_word_zhen.addColumn('string', 'Run');
+      T1_word_zhen.addColumn('number', 'Rank');
+      T1_word_zhen.addColumn('number', 'MCC');
+      T1_word_zhen.addColumn('number', 'Recall');
+      T1_word_zhen.addColumn('number', 'Precision');
+      T1_word_zhen.addColumn('number', 'Disk footprint (B)');
+      T1_word_zhen.addColumn('number', '# model params');
+      T1_word_zhen.addRows([
+        ['IST-Unbabel', 'IST-Unbabel', '',2.60, 0.3601, 0.3271, 0.9662, 2260743915.0, 565139485.0],
+        ['Papago', 'JeonghyeokPark', '',1.60, 0.3514, 0.3382, 0.9726, 2241394304.0, 560713447.0],
+        ['NJUNLP', 'gengxiang', '',2.60, 0.3084, 0.3025, 0.9877, 3264730349.0, 560145557.0],
+        ['HW-TSC', 'Abulice', '',4.00, 0.2457, 0.1813, 0.9097, 2260780823.0, 565137436.0],
+        ['Organisers', 'OrganizersBaselines', '<b>BASELINE</b>',4.20, 0.1036, 0.1233, 0.9650, 2280011066.0, 564527011.0],
+      ]);
+      formatter.format(T1_word_zhen, 4);
+      formatter.format(T1_word_zhen, 5);
+      formatter.format(T1_word_zhen, 6);
+      formatter.format(T1_word_zhen, 7);
+
+
 
 
       // TASK 2 Explainable QE
@@ -767,16 +834,16 @@
   var ids = [
     'results_task1_da_multi', 'results_task1_da_multi_no_enyo','results_task1_da_encs','results_task1_da_enja','results_task1_da_enmr','results_task1_da_kmen','results_task1_da_psen',
     'results_task1_mqm_multi', 'results_task1_mqm_ende', 'results_task1_mqm_enru', 'results_task1_mqm_zhen',
-    'results_task1_word_multi', 'results_task1_word_multi_no_enyo','results_task1_word_encs','results_task1_word_enja','results_task1_word_enmr','results_task1_word_kmen','results_task1_word_psen',
+    'results_task1_word_multi', 'results_task1_word_multi_no_enyo','results_task1_word_encs','results_task1_word_enja','results_task1_word_enmr','results_task1_word_kmen','results_task1_word_psen','results_task1_word_ende','results_task1_word_enru','results_task1_word_zhen',
     'results_task3_cons_ende','results_task3_cons_pten','results_task3_uncons_ende','results_task3_uncons_pten',
     'results_task2_encs','results_task2_enja','results_task2_enmr','results_task2_enru','results_task2_ende','results_task2_enyo','results_task2_kmen','results_task2_psen','results_task2_zhen',
   ]
   var data = [
-    T1_da_multi, T1_da_multi_no_enyo, T1_da_encs, T1_da_enja, T1_da_enmr, T1_da_kmen, T1_da_psen, 
+    T1_da_multi, T1_da_multi_no_enyo, T1_da_encs, T1_da_enja, T1_da_enmr, T1_da_kmen, T1_da_psen,
     T1_mqm_multi, T1_mqm_ende, T1_mqm_enru, T1_mqm_zhen,
-    T1_word_multi, T1_word_multi_no_enyo, T1_word_encs, T1_word_enja, T1_word_enmr, T1_word_kmen, T1_word_psen, 
+    T1_word_multi, T1_word_multi_no_enyo, T1_word_encs, T1_word_enja, T1_word_enmr, T1_word_kmen, T1_word_psen, T1_word_ende, T1_word_enru, T1_word_zhen,
     T3_cons_ende, T3_cons_pten, T3_uncons_ende, T3_uncons_pten,
-    T2_encs, T2_enja, T2_enmr, T2_enru, T2_ende,  T2_enyo,  T2_kmen,  T2_psen,  T2_zhen, 
+    T2_encs, T2_enja, T2_enmr, T2_enru, T2_ende,  T2_enyo,  T2_kmen,  T2_psen,  T2_zhen,
   ]
 
 
@@ -855,7 +922,7 @@
           </tr>
           <tr><td>&nbsp;</td></tr>
           <tr align="center">
-            <td><h4>English-Pashto</h4></td>
+            <td><h4>Pashto-English</h4></td>
           </tr>
           <tr>
             <td><div id="results_task1_da_psen" class="table"></div></td>
@@ -922,10 +989,21 @@
           </tr>
           <tr><td>&nbsp;</td></tr>
           <tr align="center">
-            <td><h4>English-Pashto</h4></td>
+            <td><h4>Pashto-English</h4></td>
+            <td><h4>English-German</h4></td>
           </tr>
           <tr>
             <td><div id="results_task1_word_psen" class="table"></div></td>
+            <td><div id="results_task1_word_ende" class="table"></div></td>
+          </tr>
+          <tr><td>&nbsp;</td></tr>
+          <tr align="center">
+            <td><h4>English-Russian</h4></td>
+            <td><h4>Chinese-English</h4></td>
+          </tr>
+          <tr>
+            <td><div id="results_task1_word_enru" class="table"></div></td>
+            <td><div id="results_task1_word_zhen" class="table"></div></td>
           </tr>
           <tr><td>&nbsp;</td></tr>
         </table>
